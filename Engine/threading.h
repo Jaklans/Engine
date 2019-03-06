@@ -52,11 +52,19 @@ struct jobDecl
 	void(*task)(void* data);
 	void* data;
 };
-struct jobManager
+class jobManager
 {
-	int i;
+public:
+	jobManager(std::thread *threads, ui32 threadCount, ui32 fiberCount, ui32 fiberStackSize);
+	~jobManager();
 	void runJobs(jobDecl* jobs, ui32 jobCount, atomicCounter** counter);
 	void waitForCounter(atomicCounter* counter, ui32 value);
+private:
+	std::thread* threads;
+	ui32 threadCount;
+	LPVOID* fibers;
+	ui32 fiberCount;
+	ui32 fiberStackSize;
 };
 
 

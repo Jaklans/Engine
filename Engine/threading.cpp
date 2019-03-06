@@ -68,5 +68,7 @@ namespace threading {
 	}
 }
 
+jobManager::jobManager(std::thread * threads, ui32 threadCount, ui32 fiberCount, ui32 fiberStackSize)
+{
 
-
+}
