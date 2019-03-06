@@ -72,11 +72,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="core.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="threading.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bootstrap.cpp" />
+    <ClCompile Include="bootstrap.cpp" />
     <ClCompile Include="header.cpp">
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">header.h</ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">header.h</ForcedIncludeFiles>

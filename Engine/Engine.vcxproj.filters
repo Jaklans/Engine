@@ -17,6 +17,9 @@
     <ClInclude Include="threading.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="threading.cpp">
@@ -25,7 +28,7 @@
     <ClCompile Include="header.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bootstrap.cpp">
+    <ClCompile Include="bootstrap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

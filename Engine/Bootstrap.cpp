@@ -1,9 +1,28 @@
 #include "threading.h"
 
-int main() {
-	tsQueue queue = tsQueue(14);
 
-	queue.Push((void*)15);
-	queue.Push((void*)12);
-	queue.Pop();
+void initJobManager(void* data) {
+	JobManager = new jobManager;
+	*JobManager = {5};
 }
+
+int main() {
+	ConvertThreadToFiber(NULL);
+
+	initJobManager(NULL);
+
+	delete JobManager;
+}
+
+
+
+//Setup Tasks
+	//Allocate Memory Buffers
+	//Initialize Graphics API
+	//Load Assets
+	//Set Up Scene Graph
+
+//Runtime Loop
+	//Update (Game Objects)
+	//Update (Static)
+	//Render Tasks
