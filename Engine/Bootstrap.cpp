@@ -1,9 +1,20 @@
 #include "threading.h"
 
-
 void initJobManager(void* data) {
-	JobManager = new jobManager;
-	*JobManager = {5};
+	ui32 threadCount = std::thread::hardware_concurrency();
+
+	if (threadCount < 1) {
+		//Warn
+		threadCount = 2;
+	}
+	if (threadCount > 64) {
+		//Warn!!!
+		threadCount = 64;
+	}
+
+	std::thread* threads = (std::thread*)malloc(sizeof(std::thread) * threadCount);
+
+	JobManager = new jobManager(threads, threadCount, FIBER_COUNT, )
 }
 
 int main() {

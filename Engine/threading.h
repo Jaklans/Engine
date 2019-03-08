@@ -3,6 +3,9 @@
 #include "core.h"
 #include <fibersapi.h>
 
+#define FIBER_COUNT 128
+#define FIBER_STACK_SIZE 
+
 struct atomicCounter {
 	volatile ui32 counter;
 	inline void decrement() { _InterlockedDecrement(&counter); }
@@ -66,6 +69,7 @@ private:
 	ui32 fiberCount;
 	ui32 fiberStackSize;
 };
+
 
 
 static jobManager* JobManager;
