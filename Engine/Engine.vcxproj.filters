@@ -9,26 +9,59 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Header Files\Threading">
+      <UniqueIdentifier>{b6832060-1ad8-46fb-85ae-19b9b30d4a98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Threading">
+      <UniqueIdentifier>{250ea45d-e1ee-4d8e-bfa9-1e54eee69e69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="threading.h">
+    <ClInclude Include="threadsafeQueue.h">
+      <Filter>Header Files\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="threadingConstructs.h">
+      <Filter>Header Files\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="jobManager.h">
+      <Filter>Header Files\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="logging.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="core.h">
+    <ClInclude Include="time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="threading.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="header.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="bootstrap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="threadsafeQueue.cpp">
+      <Filter>Source Files\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="threadingConstructs.cpp">
+      <Filter>Source Files\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="jobManager.cpp">
+      <Filter>Source Files\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="logging.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
