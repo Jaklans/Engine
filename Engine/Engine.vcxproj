@@ -107,7 +107,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="application.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="jobManager.h" />
     <ClInclude Include="logging.h" />

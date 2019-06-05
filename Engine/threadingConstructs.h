@@ -11,6 +11,12 @@ class JobManager;
 
 namespace threading {
 	using Callback = void(*)(void*);
+	
+	struct atomicCounter {
+		volatile ui32 counter = 0;
+		inline void decrement() { _InterlockedDecrement(&counter); }
+		inline void increment() { _InterlockedIncrement(&counter); }
+	};
 
 	struct Fiber
 	{
@@ -19,27 +25,20 @@ namespace threading {
 		void SwitchTo();
 
 		LPVOID fiber;
-		JobManager* manager;
+		atomicCounter* wakeCondition;
 	};
-	void fiberCallback(Fiber* data);
+	void fiberCallback(void* data);
 
 	struct Thread
 	{
 		~Thread();
-		void initialize(Callback threadCallback, void* callbackData, JobManager* managerPtr, ui32 affinity);
+		void initialize(Callback threadCallback, void* callbackData, ui32 affinity);
 
 		Fiber threadFiber;
-		JobManager* manager;
 		ui32 affinity;
 	private:
 		std::thread* thread;
 	};
 
 	void threadCallback(void* data);
-
-	struct atomicCounter {
-		volatile ui32 counter = 0;
-		inline void decrement() { _InterlockedDecrement(&counter); }
-		inline void increment() { _InterlockedIncrement(&counter); }
-	};
 }

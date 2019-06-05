@@ -8,6 +8,8 @@ public:
 		startTime_tp = clock.now();
 		currentTime_tp = startTime_tp;
 		currentTime = 0;
+		dT = 0;
+		tempDeltaT = 0;
 	}
 
 	void UpdateTime() {
@@ -27,13 +29,13 @@ public:
 	inline f32 deltaTime() {
 		return dT;
 	}
-	//Returned as 
+
 	inline void timeString(char* buffer) {
 		sprintf_s(buffer, 25, "%02d:%02d:%02d.%03d",
-			currentTime / 3600000000000,
-			(currentTime / 60000000000) % 60,
-			(currentTime / 1000000000) % 60,
-			(currentTime / 1000000) % 1000);
+			int(currentTime / 3600000000000),
+			int((currentTime / 60000000000) % 60),
+			int((currentTime / 1000000000) % 60),
+			int((currentTime / 1000000) % 1000));
 	}
 
 private:

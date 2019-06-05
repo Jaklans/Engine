@@ -4,11 +4,10 @@
 
 
 namespace threading {
-	void executeJob(jobDecl* job) 
+	void executeJob(job* job) 
 	{ 
 		if (job != NULL) {
 			job->task(job->data);
-			//delete job;
 		}
 	}
 
@@ -20,22 +19,21 @@ namespace threading {
 		delete thread;
 	}
 
-	void Thread::initialize(Callback threadCallback, void* callbackData, JobManager* managerPtr, ui32 affinity)
+	void Thread::initialize(Callback threadCallback, void* callbackData, ui32 affinity)
 	{
 		#ifdef WIN32
-			manager = managerPtr;
 			thread = new std::thread(threadCallback, callbackData);
 			//Set Affinity
 
 		#endif // WIN32
 	}
 
-	void fiberCallback(Fiber* data)
+	void fiberCallback(void* data)
 	{
-		jobDecl* job;
-		while (!data->manager->shutingDown()) {
-			if (data->manager->getJob(job)) {
-				job->task(job->data);
+		job job;
+		while (!Manager.Job->shutingDown()) {
+			if (Manager.Job->getJob(job)) {
+				job.task(job.data);
 			}
 			Sleep(1);
 		}
@@ -45,10 +43,11 @@ namespace threading {
 	{
 		//is it nessessary?
 		((Thread*)data)->threadFiber.CreateFromCaller();
-		((Thread*)data)->manager->getReadyFiber()->SwitchTo();
+		Manager.Job->getNewFiber()->SwitchTo();
 	}
 
 
+	// Fiber --------------------------------------
 	void Fiber::CreateFromCaller()
 	{
 		fiber = ConvertThreadToFiber(NULL);

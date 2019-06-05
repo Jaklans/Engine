@@ -34,6 +34,5 @@ namespace logging {
 
 #define DISPATCH_LOGS() logging::LoggingManager->HandleMessages();
 
-#define LOG_ERROR(message) logging::LoggingManager->log(message, "[ERROR]: ", 9)
-#define LOG_INFORMATION(message) //Logger::logger::log(message, verbosity::ERRORS)
-#define LOG_DEBUG(message) logging::LoggingManager->log(message, "[DEBUG]: ", 9)
+#define LOG_ERROR(message) Manager.Log->log(message, "[ERROR]: ", 9)
+#define LOG_DEBUG(message) Manager.Log->log(message, "[DEBUG]: ", 9)
